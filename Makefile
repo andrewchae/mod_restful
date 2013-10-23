@@ -1,4 +1,4 @@
-EJABBERD_PATH=../ejabberd/
+EJABBERD_PATH=../../
 EJABBERD_SRC_PATH=$(EJABBERD_PATH)src
 
 BEH_BEAMS=gen_restful_api.beam
@@ -25,7 +25,7 @@ all: $(DIST_BEAMS)
 
 ebin/%.beam: src/%.erl
 	@mkdir -p ebin
-	erlc -pa ./ebin -I ./include -I $(EJABBERD_SRC_PATH) -pa $(EJABBERD_SRC_PATH) -o ./ebin $<
+	erlc -pa ./ebin -I ./include -I $(EJABBERD_SRC_PATH) -pa $(EJABBERD_SRC_PATH) -o $(EJABBERD_SRC_PATH) $<
 
 $(TEST_BEAMS): test_ebin/%.beam : tests/%.erl
 	@mkdir -p test_ebin
